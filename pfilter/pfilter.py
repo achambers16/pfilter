@@ -471,7 +471,7 @@ class ParticleFilter(object):
             self.transformed_particles = self.original_particles
 
         # resampling (systematic resampling) step
-        if self.n_eff < self.n_eff_threshold:
+        if self.n_eff < self.n_eff_threshold and observed is not None::
             indices = self.resample_fn(self.weights)
             self.particles = self.particles[indices, :]
             self.weights = np.ones(self.n_particles) / self.n_particles
